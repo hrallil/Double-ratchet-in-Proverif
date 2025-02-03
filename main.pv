@@ -1,0 +1,10 @@
+channel c.
+type key.
+type nonce.
+
+fun enc(nonce, key): bitstring.
+reduc forall x: nonce, y: key; dec(enc(x, y), y) = x.
+
+query attacker(new n).
+
+process new k :key; new n    :nonce; out(c, enc(n, k)); out(c,k)
