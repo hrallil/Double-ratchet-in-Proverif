@@ -1,0 +1,35 @@
+free publicC:channel.
+free privateC:channel [private].
+type key.
+type skey.
+type pkey.
+
+fun pk(skey):pkey.
+fun sharedKey(pkey, skey):key.
+
+
+let PA(secA:skey) =  
+    let pubA = pk(secA) in 
+    out(publicC, pubA); 
+    in(publicC, pubB:pkey);
+    let sharedA = sharedKey(pubB, secA) in
+    out(privateC,sharedA);
+    in(privateC, sharedB:key);
+    let (=sharedB) = sharedA in 0.
+
+let PB(secB:skey) =
+    let pubB = pk(secB) in
+    out(publicC, pubB);
+    in(publicC, pubA:pkey);
+    let sharedB = sharedKey(pubA, secB) in
+    out(privateC,sharedB);
+    in(privateC, sharedA:key);
+    let (=sharedA) = sharedB in 0.
+
+
+process 
+    new ska:skey; new skb:skey; 
+    PA(ska) | 
+    PB(skb) | 
+    out(publicC, pk(ska)) | 
+    out(publicC, pk(skb)) 

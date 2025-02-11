@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+                      <html>
+                    <head>
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                    <title>ProVerif: main result page</title>
+                    <link rel="stylesheet" href="cssproverif.css">
+                                                                           </head>
+                                                                         <body>
+                                                                         <H1>ProVerif results</H1>
+<A HREF="process_0.html" TARGET="process">Process 0</A> (that is, the initial process)<br>
+<UL>
+<LI><A HREF="process_1.html" TARGET="process">Process 1</A> (that is, <A HREF="process_0.html" TARGET="process">process 0</A>, with let moved downwards)<br>
+<UL> <LI><span class="query">Query <span class="keyword">not </span><span class="pred">attacker</span>(<span class="name">s</span>[]) in <A HREF="process_1.html" TARGET="process">process 1</A>.<br>
+</span>
+<A HREF="clauses1.html" TARGET="clauses">Clauses</A><br>
+<A HREF="compclauses1.html">Completed clauses</A><br>
+<UL>
+<LI>goal reachable: <span class="pred">attacker</span>(<span class="name">s</span>[])<br>
+<A HREF="derivation1.html">Derivation</A> <A HREF="derivationexplained1.html">Explained derivation</A><br>
+<A HREF="unifyDeriv1.html" TARGET="unifderiv">Unify derivation</A><br>
+<A HREF="trace1.html">Trace</A><br>
+<A HREF="trace1.pdf">Trace graph</A><br>
+</UL>
+<span class="result">RESULT <span class="keyword">not </span><span class="pred">attacker</span>(<span class="name">s</span>[]) is <span class="falseresult">false</span>.</span><br>
+<LI><span class="query">Query event(<span class="fun">termClient</span>(<span class="var">x_2</span>,<span class="var">y_1</span>)) <span class="conn">==&gt;</span> event(<span class="fun">acceptsServer</span>(<span class="var">x_2</span>,<span class="var">y_1</span>)) in <A HREF="process_1.html" TARGET="process">process 1</A>.<br>
+</span>
+<A HREF="clauses2.html" TARGET="clauses">Clauses</A><br>
+<A HREF="compclauses2.html">Completed clauses</A><br>
+<UL>
+<LI>goal reachable: <span class="pred">b-event</span>(<span class="fun">acceptsServer</span>(<span class="var">k_2</span>,<span class="fun">pk</span>(<span class="var">k_3</span>))) <span class="conn">&amp;&amp;</span> <span class="pred">attacker</span>(<span class="var">k_3</span>) <span class="conn">-&gt;</span> <span class="pred">event</span>(<span class="fun">termClient</span>(<span class="var">k_2</span>,<span class="fun">pk</span>(<span class="name">skA</span>[])))<br>
+Abbreviations:
+<ul>
+
+<li><span class="var">k_2</span> <span class="conn">=</span> <span class="name">k_1</span>[pkX = <span class="fun">pk</span>(<span class="var">k_3</span>),!1 = <span class="var">@sid</span>]
+</ul>
+<A HREF="derivation2.html">Derivation</A> <A HREF="derivationexplained2.html">Explained derivation</A><br>
+<A HREF="unifyDeriv2.html" TARGET="unifderiv">Unify derivation</A><br>
+<A HREF="trace2.html">Trace</A><br>
+<A HREF="trace2.pdf">Trace graph</A><br>
+</UL>
+<span class="result">RESULT event(<span class="fun">termClient</span>(<span class="var">x_2</span>,<span class="var">y_1</span>)) <span class="conn">==&gt;</span> event(<span class="fun">acceptsServer</span>(<span class="var">x_2</span>,<span class="var">y_1</span>)) is <span class="falseresult">false</span>.</span><br>
+<LI><span class="query">Query inj-event(<span class="fun">termServer</span>(<span class="var">x_2</span>)) <span class="conn">==&gt;</span> inj-event(<span class="fun">acceptsClient</span>(<span class="var">x_2</span>)) in <A HREF="process_1.html" TARGET="process">process 1</A>.<br>
+</span>
+<A HREF="clauses3.html" TARGET="clauses">Clauses</A><br>
+<A HREF="compclauses3.html">Completed clauses</A><br>
+<UL>
+<LI>goal reachable: <span class="pred">b-inj-event</span>(<span class="fun">acceptsClient</span>(<span class="var">k_2</span>),<span class="var">@occ13_1</span>) <span class="conn">-&gt;</span> <span class="pred">inj-event</span>(<span class="fun">termServer</span>(<span class="var">k_2</span>),<span class="var">@occ25_1</span>)<br>
+The hypothesis occurs strictly before the conclusion.<br>
+Abbreviations:
+<ul>
+
+<li><span class="var">k_2</span> <span class="conn">=</span> <span class="name">k_1</span>[pkX = <span class="fun">pk</span>(<span class="name">skA</span>[]),!1 = <span class="var">@sid</span>]
+<li><span class="var">@occ25_1</span> <span class="conn">=</span> <span class="name">@occ25</span>[x_1 = <span class="fun">senc</span>(<span class="name">s</span>[],<span class="var">k_2</span>),pkX = <span class="fun">pk</span>(<span class="name">skA</span>[]),!1 = <span class="var">@sid</span>]
+<li><span class="var">@occ13_1</span> <span class="conn">=</span> <span class="name">@occ13</span>[x = <span class="fun">aenc</span>(<span class="fun">sign</span>(<span class="fun"></span>(<span class="fun">spk</span>(<span class="name">skB</span>[]),<span class="var">k_2</span>),<span class="name">skB</span>[]),<span class="fun">pk</span>(<span class="name">skA</span>[])),!1 = <span class="var">@sid_1</span>]
+</ul>
+</UL>
+<span class="result">RESULT inj-event(<span class="fun">termServer</span>(<span class="var">x_2</span>)) <span class="conn">==&gt;</span> inj-event(<span class="fun">acceptsClient</span>(<span class="var">x_2</span>)) is <span class="trueresult">true</span>.</span><br>
+</UL> </UL>
+<br>
+<HR>
+<H2>Verification summary:</H2>
+<UL>
+<LI>Query <span class="keyword">not </span><span class="pred">attacker</span>(<span class="name">s</span>[]) is <span class="falseresult">false</span>.
+<LI>Query event(<span class="fun">termClient</span>(<span class="var">x_2</span>,<span class="var">y_1</span>)) <span class="conn">==&gt;</span> event(<span class="fun">acceptsServer</span>(<span class="var">x_2</span>,<span class="var">y_1</span>)) is <span class="falseresult">false</span>.
+<LI>Query inj-event(<span class="fun">termServer</span>(<span class="var">x_2</span>)) <span class="conn">==&gt;</span> inj-event(<span class="fun">acceptsClient</span>(<span class="var">x_2</span>)) is <span class="trueresult">true</span>.
+</UL><HR>
+</body>
+</html>
